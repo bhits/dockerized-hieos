@@ -220,7 +220,6 @@ nbactions.xml
 # Miscellaneous #
 ##################################
 build/
-dist/
 tmp/
 bin
 *.roo
