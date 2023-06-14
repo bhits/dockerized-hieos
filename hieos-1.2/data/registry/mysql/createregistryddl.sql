@@ -60,7 +60,7 @@ CREATE TABLE `adhocquery` (
   `queryLanguage` varchar(256) NOT NULL,
   `query` varchar(4096) NOT NULL,
   PRIMARY KEY (`id`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `adhocquery`
@@ -82,7 +82,7 @@ CREATE TABLE `affectedobject` (
   PRIMARY KEY (`id`,`eventId`),
   KEY `id_AFOBJ_idx` (`id`),
   KEY `evid_AFOBJ_idx` (`eventId`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `affectedobject`
@@ -112,7 +112,7 @@ CREATE TABLE `association` (
   KEY `src_Ass_idx` (`sourceObject`),
   KEY `tgt_Ass_idx` (`targetObject`),
   KEY `type_Ass_idx` (`associationType`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `association`
@@ -141,7 +141,7 @@ CREATE TABLE `auditableevent` (
   `user_` varchar(256) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `lid_AUEVENT_evtTyp` (`eventType`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `auditableevent`
@@ -170,7 +170,7 @@ CREATE TABLE `classification` (
   `nodeRepresentation` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `clsObj_Class_idx` (`classifiedObject`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `classification`
@@ -200,7 +200,7 @@ CREATE TABLE `classificationnode` (
   KEY `parent_Node_idx` (`parent`),
   KEY `code_Node_idx` (`code`),
   KEY `path_Node_idx` (`path`(767))
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `classificationnode`
@@ -226,7 +226,7 @@ CREATE TABLE `classscheme` (
   `isInternal` varchar(1) NOT NULL,
   `nodeType` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `classscheme`
@@ -247,7 +247,7 @@ CREATE TABLE `description` (
   `value` varchar(256) NOT NULL,
   `parent` varchar(64) NOT NULL,
   PRIMARY KEY (`parent`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `description`
@@ -267,7 +267,7 @@ CREATE TABLE `emailaddress` (
   `type` varchar(256) DEFAULT NULL,
   `parent` varchar(256) NOT NULL,
   KEY `parent_EmlAdr_idx` (`parent`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `emailaddress`
@@ -297,7 +297,7 @@ CREATE TABLE `externalidentifier` (
   KEY `ro_EID_idx` (`registryObject`),
   KEY `idscheme_EID_idx` (`identificationScheme`),
   KEY `value_EID_idx` (`value`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `externalidentifier`
@@ -323,7 +323,7 @@ CREATE TABLE `externallink` (
   `externalURI` varchar(256) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `uri_ExLink_idx` (`externalURI`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `externallink`
@@ -351,7 +351,7 @@ CREATE TABLE `extrinsicobject` (
   `contentVersionName` varchar(16) DEFAULT NULL,
   `contentVersionComment` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `extrinsicobject`
@@ -376,7 +376,7 @@ CREATE TABLE `federation` (
   `comment_` varchar(256) DEFAULT NULL,
   `replicationSyncLatency` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `federation`
@@ -397,7 +397,7 @@ CREATE TABLE `name_` (
   `value` varchar(256) NOT NULL,
   `parent` varchar(64) NOT NULL,
   PRIMARY KEY (`parent`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `name_`
@@ -422,7 +422,7 @@ CREATE TABLE `notification` (
   `comment_` varchar(256) DEFAULT NULL,
   `subscription` varchar(256) NOT NULL,
   PRIMARY KEY (`id`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `notification`
@@ -441,7 +441,7 @@ CREATE TABLE `notificationobject` (
   `notificationId` varchar(256) NOT NULL,
   `registryObjectId` varchar(256) NOT NULL,
   PRIMARY KEY (`notificationId`,`registryObjectId`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `notificationobject`
@@ -460,7 +460,7 @@ CREATE TABLE `notifyaction` (
   `notificationOption` varchar(256) NOT NULL,
   `endPoint` varchar(256) NOT NULL,
   `parent` varchar(256) NOT NULL
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `notifyaction`
@@ -479,7 +479,7 @@ CREATE TABLE `objectref` (
   `id` varchar(64) NOT NULL,
   `home` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `objectref`
@@ -506,7 +506,7 @@ CREATE TABLE `organization` (
   `primaryContact` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `parent_ORG_idx` (`parent`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `organization`
@@ -534,7 +534,7 @@ CREATE TABLE `person` (
   `personName_lastName` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `lastNm_Person_idx` (`personName_lastName`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `person`
@@ -561,7 +561,7 @@ CREATE TABLE `postaladdress` (
   KEY `city_PstlAdr_idx` (`city`),
   KEY `cntry_PstlAdr_idx` (`country`),
   KEY `pCode_PstlAdr_idx` (`postalCode`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `postaladdress`
@@ -590,7 +590,7 @@ CREATE TABLE `registry` (
   `replicationSyncLatency` varchar(32) DEFAULT 'P1D',
   `specificationVersion` varchar(8) NOT NULL,
   PRIMARY KEY (`id`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `registry`
@@ -614,7 +614,7 @@ CREATE TABLE `registryobject` (
   `versionName` varchar(16) DEFAULT NULL,
   `comment_` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`,`objectType`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `registryobject`
@@ -638,7 +638,7 @@ CREATE TABLE `registrypackage` (
   `versionName` varchar(16) DEFAULT NULL,
   `comment_` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `registrypackage`
@@ -658,7 +658,7 @@ CREATE TABLE `repositoryitem` (
   `versionName` varchar(16) NOT NULL,
   `content` blob,
   PRIMARY KEY (`lid`,`versionName`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `repositoryitem`
@@ -682,7 +682,7 @@ CREATE TABLE `service` (
   `versionName` varchar(16) DEFAULT NULL,
   `comment_` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `service`
@@ -710,7 +710,7 @@ CREATE TABLE `servicebinding` (
   `targetBinding` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `service_BIND_idx` (`service`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `servicebinding`
@@ -732,7 +732,7 @@ CREATE TABLE `slot` (
   `value` varchar(128) DEFAULT NULL,
   `parent` varchar(64) NOT NULL,
   PRIMARY KEY (`parent`,`name_`,`sequenceId`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `slot`
@@ -760,7 +760,7 @@ CREATE TABLE `specificationlink` (
   PRIMARY KEY (`id`),
   KEY `binding_SLnk_idx` (`serviceBinding`),
   KEY `spec_SLnk_idx` (`specificationObject`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `specificationlink`
@@ -788,7 +788,7 @@ CREATE TABLE `subscription` (
   `notificationInterval` varchar(32) DEFAULT 'P1D',
   `startTime` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `subscription`
@@ -811,7 +811,7 @@ CREATE TABLE `telephonenumber` (
   `phoneType` varchar(256) DEFAULT NULL,
   `parent` varchar(256) NOT NULL,
   KEY `parent_Phone_idx` (`parent`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `telephonenumber`
@@ -833,7 +833,7 @@ CREATE TABLE `usagedescription` (
   `parent` varchar(256) NOT NULL,
   PRIMARY KEY (`parent`,`lang`),
   KEY `value_UsgDes_idx` (`value`(767))
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `usagedescription`
@@ -851,7 +851,7 @@ DROP TABLE IF EXISTS `usageparameter`;
 CREATE TABLE `usageparameter` (
   `value` varchar(1024) NOT NULL,
   `parent` varchar(256) NOT NULL
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `usageparameter`
@@ -878,7 +878,7 @@ CREATE TABLE `user_` (
   `personName_middleName` varchar(64) DEFAULT NULL,
   `personName_lastName` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `user_`
